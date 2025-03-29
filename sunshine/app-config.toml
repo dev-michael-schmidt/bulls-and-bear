@@ -1,0 +1,35 @@
+#Untitled Folder general
+storage_type = 'local'
+input_type = 1  # 1=legacy 2=csv
+output_type = 1 # 1=legacy 2=csv
+load_all_files = true   # whether or not to load all files from input_path
+input_path =  'tests/resources/PV_B1_raw_input'   # mocked raw data bucket
+output_path = 'tests/resources/CK_S0000088'   # mocked app data bucket
+execution_path = 'executions'
+execution_order = ['water_ingress']
+delete_execution_data = false    # delete everything in /tests/executions after processing
+coefficient_term_expansion = 0.0012
+standard_temperature = 15
+
+
+# module specific configurables
+[example_module]
+input_files = ['CK_S0000088_ATG.csv']
+module_config_a = 123
+module_config_b = 'xyz'
+
+[water_ingress]
+input_files = ['pre_result.csv', 'atg_result.csv']
+
+[PV_flavors]
+input_files = ['tests/resources/PV_B1_raw_input/CK_S0000088_ATG.csv','tests/resources/PV_B1_raw_input/CK_S0000088_TXN.csv']
+polynome_coef0 = 0
+polynome_coef1 = 2.450633079
+polynome_coef2 = 0.016971782
+polynome_coef3 = -0.0000128402
+polynome_coef4 = 0.00000000517142
+polynome_coef5 = -0.00000000000101097
+time_interval = 30
+
+[pts_qualifying]
+input_files = []
